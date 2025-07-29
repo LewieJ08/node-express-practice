@@ -1,12 +1,15 @@
 const express = require("express");
+
 const app = express();
+app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-    console.log("Running index route on port: 3000");
-    res.send("Hello world");
-})  
+    res.render("index")
+});  
 
-app.listen(3000);
+app.listen(3000, () => {
+    console.log("Server running on port: 3000");
+});
 
 
 
