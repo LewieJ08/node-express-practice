@@ -4,16 +4,15 @@ const app = express();
 app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-    res.render("index", {text: "world"})
+    console.log("Here")
+    res.render("index", {text: "World"})
 });  
 
-app.get("/users", (req, res) => {
-    res.send("hello world")
-});
+const userRouter = require("./routes/users")
 
-app.listen(3000, () => {
-    console.log("Server running on port: 3000");
-});
+app.use("/users", userRouter)
+
+app.listen(3000);
 
 
 
