@@ -10,6 +10,7 @@ app.get("/", (req, res) => {
 
 const userRouter = require("./routes/users");
 
+// adds /users to start of all routes within userRouter
 app.use("/users", userRouter);
 
 app.listen(3000);
