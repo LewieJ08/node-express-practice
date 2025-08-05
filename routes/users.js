@@ -3,6 +3,8 @@ const router = express.Router();
 
 // router acts as a sub-app that can be exported to server.js
 
+router.use(logger);
+
 router.get("/", (req, res) => {
     res.send("User List")
 });
@@ -17,7 +19,6 @@ router.post("/", (req, res) => {
 
 router.route("/:id")
     .get((req, res) => {
-        console.log(req.user);
         res.send(`Get User With ID ${req.params.id}`);
     })
     .put((req, res) => {
@@ -32,5 +33,11 @@ router.param("id",(req, res, next, id) => {
     req.user = users[id];
     next();
 });
+
+function logger(req, res, next) {
+    console.log(req.originalUrl);
+    next();
+};
+
 
 module.exports = router;
