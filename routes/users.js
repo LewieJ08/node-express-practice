@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-    res.send("User New Form")
+    res.render("users/new")
 });
 
 router.post("/", (req, res) => {
