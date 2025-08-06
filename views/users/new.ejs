@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="/users" method="post">
+        <label>First Name
+            <input type="text" name="firstName" value="<%= locals.firstName %>" >
+        </label>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
